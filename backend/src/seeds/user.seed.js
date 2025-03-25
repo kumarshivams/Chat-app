@@ -8,7 +8,7 @@ const seedUsers = [
   // Female Users
   {
     email: "emma.thompson@example.com",
-    fullName: "Emma Thompson",
+    fullName: "Mahima Kumari",
     password: "123456",
     profilePic: "https://randomuser.me/api/portraits/women/1.jpg",
   },
@@ -103,6 +103,8 @@ const seedUsers = [
 const seedDatabase = async () => {
   try {
     await connectDB();
+    await User.deleteMany({});
+    console.log("database cleared")
 
     await User.insertMany(seedUsers);
     console.log("Database seeded successfully");
